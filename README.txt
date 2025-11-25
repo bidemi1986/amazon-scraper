@@ -1,7 +1,7 @@
 - setup a.env file in root with the credentials of a valid amazon acct 
     and also your system or vm host user name :
 
-    sample.env file content:
+     .env file content sample:
     =========================
     AMAZON_EMAIL=joe biden
     AMAZON_PASSWORD=sleepyjoebiden

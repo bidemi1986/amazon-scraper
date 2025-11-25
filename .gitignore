@@ -7,4 +7,4 @@ logs/
 output/
 scraped_data/
 chromedriver
-amazon_cookies*
+amazon_cookies.*

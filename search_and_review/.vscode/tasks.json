@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Extract Amazon reviews from HTML",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"extract_reviews.py"
+			],
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}

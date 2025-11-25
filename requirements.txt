@@ -1,0 +1,13 @@
+python-json-logger
+aiolimiter
+aiohttp
+aiofiles
+typer
+typing_extensions
+beautifulsoup4
+swiftshadow
+selenium
+webdriver-manager
+pandas
+openpyxl
+python-dotenv

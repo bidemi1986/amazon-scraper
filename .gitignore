@@ -1,1 +1,10 @@
 .venv
+.env
+.DS_Store
+__pycache__/
+.ipynb_checkpoints/
+logs/
+output/
+scraped_data/
+chromedriver
+amazon_cookies*

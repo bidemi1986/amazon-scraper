@@ -19,12 +19,13 @@ from selenium.webdriver.support import expected_conditions as EC
 # ============================================
 # CONFIG
 # ============================================
-SEARCH_TERM = "playstation 5"
+SEARCH_TERM = "Kasa Indoor Pan/Tilt Smart Security Camera, 1080p HD Dog-Camera,"
 MAX_PRODUCTS = 5
 OUTPUT_JSON = "reviews.json"
 OUTPUT_EXCEL = "reviews.xlsx"
 COOKIE_FILE = "amazon_cookies.pkl"
-PROFILE_PATH = "/Users/biddyvadr/Library/Application Support/Google/Chrome/SeleniumDummy"
+PROFILE_PATH = "/Users/user/Library/Application Support/Google/Chrome/SeleniumDummy"
+# PROFILE_PATH = "/Users/biddyvadr/Library/Application Support/Google/Chrome/SeleniumDummy"
 
 
 def log(msg):
@@ -66,9 +67,10 @@ def find_first(driver, selectors, description="element"):
 # ============================================
 # REVIEW SELECTORS
 # ============================================
-REVIEW_CONTAINER = "div[data-hook='review']"
+REVIEW_CONTAINER = "li[data-hook='review']"
 TITLE_SELECTORS = [
-    "a[data-hook='review-title']",
+    "a[data-hook='review-title'] span",  
+    "h5 a[data-hook='review-title']",
     "span[data-hook='review-title']",
     "//a[@data-hook='review-title']",
     "//span[@data-hook='review-title']",
@@ -97,6 +99,10 @@ def scrape_reviews(driver):
         sleep_random(1, 2)
 
         containers = driver.find_elements(By.CSS_SELECTOR, REVIEW_CONTAINER)
+        # Save the page source to see what Selenium sees
+        with open("selenium_page_source.html", "w", encoding="utf-8") as f:
+            f.write(driver.page_source)
+        print("[DEBUG] Saved page source to selenium_page_source.html")
         log(f"[+] Found {len(containers)} review containers")
 
         for c in containers:
@@ -105,7 +111,9 @@ def scrape_reviews(driver):
             title = find_first(c, TITLE_SELECTORS, "review title")
             rating = find_first(c, RATING_SELECTORS, "review rating")
             body = find_first(c, BODY_SELECTORS, "review text")
-
+            log(f"Title: {title.text.strip() if title else ''}")
+            log(f"Rating: {rating.text.strip() if rating else ''}")
+            log(f"Body: {body.text.strip() if body else ''}")
             reviews.append({
                 "title": title.text.strip() if title else "",
                 "rating": rating.text.strip() if rating else "",

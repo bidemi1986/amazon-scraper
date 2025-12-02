@@ -1,0 +1,43 @@
+Dummy profile already exists → /Users/user/Library/Application Support/Google/Chrome/SeleniumDummy/Default/Preferences
+Traceback (most recent call last):
+  File "/Users/user/Desktop/gigs/amazon-scraper/amazon-login/login_amazon2.py", line 208, in <module>
+    login_and_save_cookies(email, password)
+  File "/Users/user/Desktop/gigs/amazon-scraper/amazon-login/login_amazon2.py", line 107, in login_and_save_cookies
+    driver = webdriver.Chrome(
+             ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Desktop/gigs/amazon-scraper/venv/lib/python3.12/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    super().__init__(
+  File "/Users/user/Desktop/gigs/amazon-scraper/venv/lib/python3.12/site-packages/selenium/webdriver/chromium/webdriver.py", line 71, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "/Users/user/Desktop/gigs/amazon-scraper/venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 263, in __init__
+    self.start_session(capabilities)
+  File "/Users/user/Desktop/gigs/amazon-scraper/venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 366, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Desktop/gigs/amazon-scraper/venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+  File "/Users/user/Desktop/gigs/amazon-scraper/venv/lib/python3.12/site-packages/selenium/webdriver/remote/errorhandler.py", line 233, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: cannot find Chrome binary
+Stacktrace:
+0   chromedriver                        0x00000001043f96b8 chromedriver + 4937400
+1   chromedriver                        0x00000001043f0b73 chromedriver + 4901747
+2   chromedriver                        0x0000000103fae616 chromedriver + 435734
+3   chromedriver                        0x0000000103fdaac6 chromedriver + 617158
+4   chromedriver                        0x0000000103fd867c chromedriver + 607868
+5   chromedriver                        0x000000010401fa08 chromedriver + 899592
+6   chromedriver                        0x000000010401eebf chromedriver + 896703
+7   chromedriver                        0x0000000104015de3 chromedriver + 859619
+8   chromedriver                        0x0000000103fe3d7f chromedriver + 654719
+9   chromedriver                        0x0000000103fe50de chromedriver + 659678
+10  chromedriver                        0x00000001043b52ad chromedriver + 4657837
+11  chromedriver                        0x00000001043ba130 chromedriver + 4677936
+12  chromedriver                        0x00000001043c0def chromedriver + 4705775
+13  chromedriver                        0x00000001043bb05a chromedriver + 4681818
+14  chromedriver                        0x000000010438d92c chromedriver + 4495660
+15  chromedriver                        0x00000001043d8838 chromedriver + 4802616
+16  chromedriver                        0x00000001043d89b7 chromedriver + 4802999
+17  chromedriver                        0x00000001043e999f chromedriver + 4872607
+18  libsystem_pthread.dylib             0x00007ff80f46e1d3 _pthread_start + 125
+19  libsystem_pthread.dylib             0x00007ff80f469bd3 thread_start + 15
+

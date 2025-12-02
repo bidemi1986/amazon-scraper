@@ -8,3 +8,4 @@ output/
 scraped_data/
 chromedriver
 amazon_cookies.*
+/venv

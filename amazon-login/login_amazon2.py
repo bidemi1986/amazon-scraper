@@ -83,7 +83,7 @@ def click_by_xpath_any(driver, xpaths, timeout=20):
 
 def login_and_save_cookies(email, password, cookies_file="amazon_cookies.pkl"):
 
-    dummy_profile_path = "/Users/biddyvadr/Library/Application Support/Google/Chrome/SeleniumDummy"
+    dummy_profile_path = os.path.join(os.path.expanduser("~"), "Library/Application Support/Google/Chrome/SeleniumDummy")
 
     ensure_dummy_profile(dummy_profile_path)
 
@@ -103,6 +103,9 @@ def login_and_save_cookies(email, password, cookies_file="amazon_cookies.pkl"):
     # Stability settings
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
+    
+    # Explicitly set binary location for macOS
+    chrome_options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
     driver = webdriver.Chrome(
         service=Service(ChromeDriverManager().install()),
@@ -188,6 +191,16 @@ def login_and_save_cookies(email, password, cookies_file="amazon_cookies.pkl"):
         print("\n❌ LOGIN FAILED:", error)
         driver.save_screenshot("login_error.png")
         print("Saved screenshot → login_error.png")
+        print("\n⚠️  The browser is still open. Please check for CAPTCHA or OTP.")
+        input("Press Enter AFTER you have fully logged in...")
+
+        # Try saving cookies again
+        try:
+            cookies = driver.get_cookies()
+            pickle.dump(cookies, open(cookies_file, "wb"))
+            print(f"Cookies saved (manual fallback) → {cookies_file}")
+        except Exception as e:
+            print("Could not save cookies:", e)
 
     finally:
         driver.quit()

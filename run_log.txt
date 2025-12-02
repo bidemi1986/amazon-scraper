@@ -1,0 +1,31 @@
+Dummy profile already exists → /Users/user/Library/Application Support/Google/Chrome/SeleniumDummy/Default/Preferences
+Opened Amazon homepage
+Clicked Sign-in
+Entered Email
+Clicked Continue
+Entered Password
+Clicked Sign In
+
+❌ LOGIN FAILED: Message: 
+Stacktrace:
+0   chromedriver                        0x000000010e97d698 chromedriver + 6153880
+1   chromedriver                        0x000000010e974b6a chromedriver + 6118250
+2   chromedriver                        0x000000010e409a5b chromedriver + 436827
+3   chromedriver                        0x000000010e45c538 chromedriver + 775480
+4   chromedriver                        0x000000010e45c791 chromedriver + 776081
+5   chromedriver                        0x000000010e4ad934 chromedriver + 1108276
+6   chromedriver                        0x000000010e4aac8e chromedriver + 1096846
+7   chromedriver                        0x000000010e44eb6f chromedriver + 719727
+8   chromedriver                        0x000000010e44f871 chromedriver + 723057
+9   chromedriver                        0x000000010e93a011 chromedriver + 5877777
+10  chromedriver                        0x000000010e93e4c2 chromedriver + 5895362
+11  chromedriver                        0x000000010e916155 chromedriver + 5730645
+12  chromedriver                        0x000000010e93ef6f chromedriver + 5898095
+13  chromedriver                        0x000000010e905dc4 chromedriver + 5664196
+14  chromedriver                        0x000000010e961b48 chromedriver + 6040392
+15  chromedriver                        0x000000010e961d0d chromedriver + 6040845
+16  chromedriver                        0x000000010e974751 chromedriver + 6117201
+17  libsystem_pthread.dylib             0x00007ff80f46e1d3 _pthread_start + 125
+18  libsystem_pthread.dylib             0x00007ff80f469bd3 thread_start + 15
+
+Saved screenshot → login_error.png
